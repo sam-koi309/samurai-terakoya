@@ -1,0 +1,96 @@
+samu-koi309
+
+
+【車のプログラム】
+package kadai_015;
+
+public class Car_Chapter15 {
+	
+	private int gear = 1;
+	private int speed = 10;
+	private int gear1 = 1;
+	
+	
+	public void gearChange(int afterGear) {
+		switch(afterGear) {
+		case 1 ->{this.speed
+			= 10;
+			}
+		case 2 ->{
+			this.speed
+			= 20;
+		}
+		case 3 ->{
+			this.speed
+			= 30;
+		}
+		case 4 ->
+			this.speed
+			= 40;
+			default -> 
+				this.speed = 10;
+		}
+		this.gear = afterGear;
+		
+	}
+	public void run() {
+		System.out.println("ギア" + this.gear1 + "から" + this.gear +"に切り替えました");
+		System.out.println("速度は" + this.speed + "kmです");
+		
+	
+
+
+【1個目のプログラム】
+package text.section_15;
+
+public class ClassStudy {
+
+	public static void main(String[] args) {
+		// TODO 自動生成されたメソッド・スタブ
+		Product shampoo = new Product( "シャンプー" , 800, 10);
+		Product coffee = new Product("コーヒー", 500 ,5);
+		
+		shampoo.takeOder(5);
+		coffee.takeOder(2);
+		shampoo.takeOder(5);
+		
+	}
+
+【２個目のプログラム】
+package text.section_15;
+
+public class Product {
+	private String name = "";
+	private int price = 0;
+	private int stock = 0;
+	
+	public Product (String name, int price, int stock) {
+		this.name = name;
+		this.price = price;
+		this.stock = stock;
+		
+		System.out.println("【商品データの生成】" + this.name);
+		System.out.println("価格：" + this.price + "円(税込)/在庫数：" + this.stock);
+	}
+	
+	public void takeOder( final int number ) {
+		System.out.println("【注文処理開始】");
+		System.out.println("商品名" + this.name);
+		System.out.println("単品価格" + this.price + "円(税込)");
+		System.out.println("注文数" + number + "/在庫数：" + this.stock);
+		
+		if (this.stock < number) {
+			System.out.println(this.name + "は在庫不足です");
+			return;
+		}
+		
+		int total = this.price * number;
+		System.out.println(number + "点で合計" + total + "円(税込)です");
+		
+		this.stock -=number;
+		System.out.println(this.name + "残りの在庫は" + this.stock);
+		
+	}
+
+}
+
